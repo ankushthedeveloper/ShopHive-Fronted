@@ -1,0 +1,352 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+body {
+  user-select: none;
+  font-family: "Urbanist", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+$w: white;
+$t: rgb(58, 165, 165);
+$b: rgb(46, 46, 46);
+
+.red {
+  color: red;
+}
+.purple {
+  color: rgb(47, 0, 255);
+}
+.green {
+  color: rgb(0, 195, 0);
+}
+
+@import "./admin/mixin";
+@import "./home";
+@import "./cart";
+@import "./shipping.scss";
+@import "./login.scss";
+@import "./signup.scss";
+@import "./admin/chart";
+@import "./admin/dashboard";
+@import "./admin/dashboardapp";
+@import "./admin/products";
+@import "./admin/mediaquery";
+@import "./ProductPage.scss";
+@import "./SearchPage.scss";
+
+.loader {
+  @include heading(2px);
+  font-size: 1.2rem;
+  color: greenyellow;
+}
+
+.container {
+  max-width: 1367px;
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+
+  h1 {
+    @include heading();
+    margin: 1rem 0;
+  }
+}
+
+.header {
+  margin: 15px;
+  left: 0px;
+  @include flex(row, flex-end, stretch, 0.8rem);
+  a {
+    color: $b;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    &:hover {
+      color: $t;
+    }
+  }
+  button {
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: transparent;
+    &:hover {
+      color: $t;
+    }
+  }
+  dialog {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    height: 50vh;
+    position: absolute;
+    left: calc(100% - 300px);
+    background-color: rgb(26, 32, 43);
+    z-index: 10;
+    top: 3%;
+    right: 10rem;
+    overflow: scroll;
+    > div {
+      @include flex(column, flex-start, center, 0.25rem);
+
+      > a {
+        border: 0.3px rgb(98 0 255 / 23%) solid;
+        border-radius: 10px;
+        margin: 6px;
+        padding: 5px;
+        color: #fff;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      button {
+        color: brown;
+      }
+    }
+  }
+}
+
+.NotFound{
+  @include flex();
+  height: 80vh;
+  svg{
+    font-size: 6rem;
+  }
+  h1{ @include heading(2px);
+    font-size: 2rem;
+  }
+}
+
+
+.Checkout-container{
+  max-width:400px;
+ position: relative;
+ top: 100px;
+ left:40%;
+  button{
+    @include btn();
+    width: 100%;
+    margin-top: 2px;
+    background-color: rgb(29, 91, 122);
+    &:hover{
+      background-color: green
+    }
+  }
+}
+.admin-container {
+  @include grid(1fr 4fr, 2rem);
+  height: 100vh;
+  background-color: rgb(247, 247, 247);
+  > aside {
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    z-index: 10;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > div {
+      margin: 2rem 1rem;
+      > h5 {
+        @include heading(2px);
+        opacity: 0.8;
+        margin: 1rem 0;
+      }
+      > ul {
+        @include flex(column, unset, unset, 0.5rem);
+        list-style: none;
+        > li {
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+          a {
+            color: rgba(0, 0, 0, 0.825);
+            @include flex(row, unset);
+          }
+        }
+      }
+    }
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: bold;
+    color: #0000009e;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 2rem 1rem;
+  }
+
+  tbody {
+    tr {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+    }
+
+    td {
+      padding: 1rem;
+
+      img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+      a {
+        text-decoration: none;
+        background-color: rgba(44, 104, 255, 0.455);
+        color: rgba(44, 104, 255);
+        padding: 0.25rem 0.5rem;
+        border-radius: 10px;
+      }
+      button {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: rgb(255, 44, 44);
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.table-pagination {
+  @include flex;
+  padding: 2rem;
+  > button {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 115, 255);
+    color: white;
+    &:disabled {
+      background-color: rgba(0, 115, 255, 0.1);
+      cursor: not-allowed;
+    }
+  }
+}
+
+#hamburger {
+  display: grid;
+  place-items: center;
+  @include square(3rem);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(44, 104, 255);
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 9;
+}
+
+#close-sidebar {
+  margin: 1rem auto;
+  display: block;
+  padding: 0.75rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(202, 64, 64);
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  font-size: larger;
+}
+
+.loader {
+  width: 100%;
+  height: 85vh;
+  @include flex;
+  > div {
+    @include square(10rem);
+    border-radius: 50%;
+    border-top: 1rem solid rgb(198, 212, 165);
+    border-left: 1rem solid rgb(43, 43, 43);
+    border-right: 1rem solid #fff;
+    border-bottom: 1rem solid #fff;
+    animation: loading-animation 0.5s linear infinite;
+
+  }
+}
+
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-shape {
+  height: 30px;
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+
+  animation: skeleon-loading 1.5s infinite;
+}
+
+@keyframes loading-animation {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes up-and-down {
+  to {
+    transform: translate(-50%, -20%);
+  }
+}
+
+@keyframes skeleon-loading {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

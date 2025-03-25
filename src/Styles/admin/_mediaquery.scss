@@ -1,0 +1,363 @@
+@media screen and (width<= 1200px) {
+  .admin-container {
+    overflow: auto;
+    > main {
+      .dashboard {
+        .graph-container {
+          > div {
+            width: 100%;
+            background-color: aqua;
+          }
+          .dashboard-categories {
+            @include flex(column, center, unset, 0);
+            padding-bottom: 2rem;
+            > h2 {
+              @include heading;
+              margin: 1.5rem 0 2rem 0;
+              text-align: center;
+            }
+          }
+        }
+      }
+      .dashboard-product-box {
+        h2 {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: antiquewhite;
+          border-radius: 10px;
+          width: fit-content;
+          margin-left: 10rem;
+        }
+      }
+      .chart-container {
+        h1 {
+          font-size: xx-large;
+          background-color: aqua;
+        }
+      }
+    }
+  }
+
+  .dashboard {
+    .widget-container,
+    .graph-container,
+    .transaction-container {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .graph-container {
+      padding: 2rem;
+    }
+    .transaction-container {
+      padding: 2rem;
+      height: unset;
+    }
+  }
+
+  .product-management {
+    padding: 2rem;
+  }
+}
+
+@media screen and (width<= 1100px) {
+  .ProductInfo {
+    flex-wrap: wrap;
+    > main {
+      position: relative;
+      top: 100px;
+    }
+    > section {
+      margin-top: 100px;
+      position: relative;
+      @include flex(column, center, flex-start, 0.25rem);
+      left: 30%;
+    }
+  }
+
+  .cart {
+    .cartInfo {
+      @include flex(row, space-around, flex-start, 0.25rem);
+      flex-wrap: wrap;
+
+      > main {
+        padding: 0px;
+        margin-top: 100px;
+        width: 100vw;
+        height: 80vh;
+      }
+      > section {
+        width: 100vw;
+        padding: 2rem;
+        margin-top: 100px;
+      }
+    }
+  }
+
+  .header {
+    position: relative;
+    top: 25px;
+    right: 0px;
+    padding-right: 5px;
+
+    > dialog {
+      top: 25px !important;
+    }
+  }
+  .home {
+    > section {
+      position: relative;
+      top: 50px;
+    }
+  }
+  .admin-container {
+    grid-template-columns: 1fr !important;
+
+    .bar {
+      margin-top: 50px;
+    }
+
+    > main {
+      .dashboard-product-box {
+        h2 {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: antiquewhite;
+          border-radius: 10px;
+          width: fit-content;
+          margin-left: 10rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (width<= 768px) {
+  .cart-item {
+    padding: 0;
+    margin: 2rem;
+    > img {
+      padding: 5px;
+      @include square(10%);
+      object-fit: cover;
+    }
+
+    > article {
+      @include flex(column, space-between, flex-start, 0.25rem);
+      flex-wrap: wrap;
+      width: max-content;
+      a {
+        font-size: 1rem;
+        @include heading(2px);
+      }
+    }
+    .quantity {
+      > span {
+        display: block;
+        text-align: center;
+        > button {
+          @include square(1rem);
+          font-size: 0.8rem;
+        }
+      }
+    }
+    .delete {
+      margin-left: 15px;
+    }
+  }
+
+  .cart {
+    .cartInfo {
+      @include flex(row, space-around, flex-start, 0.25rem);
+      flex-wrap: wrap;
+
+      > main {
+        padding: 0px;
+        margin-top: 100px;
+        width: 100vw;
+        height: 80vh;
+      }
+    }
+    > section {
+      width: 100vw;
+      padding: 2rem;
+      margin-top: 100px;
+    }
+  }
+  .home {
+    > h1 {
+      left: 0px !important;
+      margin-left: 5px;
+    }
+    > section {
+      position: relative;
+      top: 50px;
+      background-position: -7rem;
+    }
+  }
+
+  .product-search-page {
+    display: block;
+    padding: 0;
+
+    > aside {
+      @include flex(row, space-between, center);
+      flex-wrap: wrap;
+      box-shadow: none;
+      > h2 {
+        @include heading;
+        font-size: 1.2rem;
+      }
+    }
+    > main > input {
+      width: 100%;
+      border: 1px solid rgba(212, 212, 212, 0.379);
+    }
+  }
+}
+
+@media screen and (width<= 600px) {
+  .ProductInfo {
+    flex-wrap: wrap;
+    > main {
+      position: relative;
+      top: 100px;
+      width: 100%;
+      > img {
+        width: 400px;
+        margin-left: 200px;
+      }
+    }
+    > section {
+      width: 100% !important;
+      margin-top: 100px;
+      position: relative;
+      @include flex(row, center, flex-start, 0.25rem);
+      left: 60%;
+      > h1 {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  .signup {
+    > main {
+      > form {
+        width: 100vw;
+        > input {
+          width: 80vw;
+        }
+      }
+    }
+  }
+  .login {
+    > main {
+      > form {
+        position: relative;
+        top: 5rem;
+        height: 50vh;
+        width: 100vw;
+        > div {
+          width: 100vw;
+          label {
+            margin-left: 50px;
+          }
+          > select,
+          input {
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+  }
+  .shipping {
+    > main {
+      > form {
+        width: 100vw;
+        > input {
+          width: 80vw;
+        }
+      }
+    }
+  }
+  .cart-item {
+    > img {
+      @include square(20%);
+    }
+  }
+  .product-management {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    > section {
+      max-width: 400px;
+    }
+  }
+
+  .chart-container {
+    padding: 0;
+    > h1 {
+      margin: 5rem;
+      text-align: center;
+    }
+    > section {
+      margin: 8rem auto;
+    }
+  }
+
+  .dashboard-app-container > section {
+    .coupon-form,
+    .stopwatch {
+      display: flex;
+      flex-direction: column;
+    }
+    .stopwatch {
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (width<= 460px) {
+  :root {
+    // width: 500px;
+  }
+  .header {
+    align-self: center;
+    scale: 1.5;
+    margin-right: 100px !important;
+  }
+
+  .home {
+    // width: 400px;
+  }
+  .searchPage {
+    svg {
+      margin-top: 70px;
+      font-size: 1.3rem;
+    }
+
+    .hamburger {
+      font-size: 3rem;
+      border-radius: 50%;
+    }
+    > main {
+      width:unset;
+      > h1 {
+        margin-top: 50px;
+      }
+      > input {
+        margin-left: 50px;
+      }
+      .productList {
+        width: 500px;
+        .Product-card {
+          height: 400px;
+        }
+        > div {
+          height: 60vh;
+          width: 100%;
+          > img {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+}
