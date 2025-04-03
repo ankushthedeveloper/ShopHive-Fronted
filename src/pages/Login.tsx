@@ -21,7 +21,7 @@ const Login = () => {
         photo: user.photoURL!,
         email: user.email!,
         gender,
-        _id: user.uid!,
+        gId: user.uid!,
         role: "user",
         dob:date,
       });

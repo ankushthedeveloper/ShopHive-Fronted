@@ -3,7 +3,7 @@ export type User = {
   photo: string;
   email: string;
   gender: string;
-  _id: string;
+  gId: string;
   dob: string;
   role: string;
 };
@@ -17,7 +17,18 @@ export type Product = {
   rating: number;
   photo: string;
   description: string;
-  tags: [string];
+  tags:string;
+};
+export type ProductRes = {
+  _id: string;
+  name: string;
+  price: number;
+  stock: number;
+  category: string;
+  rating: number;
+  photos: [string];
+  description: string;
+  tags:[string];
 };
 
 export type ShippingInfo = {
