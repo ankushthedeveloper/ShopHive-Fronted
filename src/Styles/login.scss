@@ -1,0 +1,49 @@
+.login{
+    @include flex(column,center,center);
+    main{
+        >h1{
+            @include heading(2px);
+            text-align: center;
+        }
+        position: relative;
+        top:100px;
+        >form{
+            @include flex(column,center,center);
+            @include square(35rem);
+            position: relative;
+           .back{
+            background-color: orange;
+            position: absolute;
+            top:0px;
+            left:0px;
+            padding: 5px;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            
+    
+           }
+    
+            background-color: rgba(255, 255, 255, 0.939);
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.35);
+            >div{
+                width: 100%;
+                @include flex(column, flex-start, stretch, 0.2rem);
+                > input,
+                > select {
+                  @include inputStyle;
+                  border: 1px solid rgba(162, 162, 162, 0.53);
+                  border-radius: 5px;
+                  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                }
+            }
+            button{
+                @include btn(rgb(44, 170, 151),white,12px,1.5rem,5px);
+                align-self: center;
+            }
+        }
+    
+    }
+    
+    }
