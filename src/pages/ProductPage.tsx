@@ -9,7 +9,7 @@ import { server } from "../redux/store";
 import { Skeleton } from "../components/Loader";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducer/cartReducer";
-import "../Styles/ProductPage.scss"; // Global SCSS file
+import "../Styles/ProductPage.scss"; 
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -21,19 +21,9 @@ const ProductPage = () => {
     const err = error as customError;
     toast.error(err.data.message);
   }
-
-  const { price, name, stock, photo, category, tags, description, rating } =
-    res?.data || {
-      name: "",
-      price: 0,
-      stock: 0,
-      photo: "",
-      category: "",
-      tags: [],
-      description: "",
-      rating: 0,
-    };
+ console.log(res);
  
+  const { price, name, stock, photos, category, tags, description, rating } = res!.data
     const cartHandler = (cartItem: CartItemType) => {
     if (cartItem.stock < 1) return toast.error("Product is Out of Stock");
 
@@ -58,7 +48,7 @@ const ProductPage = () => {
           {/* Product Image */}
           <div className="product-image-container">
             <h5 className="category">{category}</h5>
-            <img src={`${server}/${photo}`} alt={name} className="product-image" />
+            <img src={`${server}/${photos}`} alt={name} className="product-image" />
           </div>
 
           {/* Product Details */}
@@ -81,13 +71,13 @@ const ProductPage = () => {
             {/* Buttons */}
             <div className="product-buttons">
               <button
-                onClick={() => cartHandler({productId:id, name, price, stock,photo, quantity:1 })}
+                onClick={() => cartHandler({productId:id, name, price, stock,photo:photos[0], quantity:1 })}
                 className="btn btn-add-to-cart"
               >
                 Add to Cart <BiCart />
               </button>
               <button
-                onClick={() => buyHandler({ productId:id, name, price, stock,photo, quantity:1 })}
+                onClick={() => buyHandler({ productId:id, name, price, stock,photo:photos[0], quantity:1 })}
                 className="btn btn-buy-now"
               >
                 Buy Now <FiShoppingBag />

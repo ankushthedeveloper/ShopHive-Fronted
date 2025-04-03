@@ -19,7 +19,7 @@ export const userAPI = createApi({
     }),
     login: builder.mutation<messageTypeResponse, User>({
       query: (user) => ({
-        url: "new",
+        url: "register",
         method: "POST",
         body: user,
       }),
@@ -44,8 +44,7 @@ export const getUser = async (id: string) => {
   try {
     const { data }: { data: userResponse } = await axios.get(
       `${import.meta.env.VITE_SERVER}/api/v1/user/${id}`
-    );
-
+    );     
     return data;
   } catch (error) {
     throw error;

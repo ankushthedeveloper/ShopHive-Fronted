@@ -120,7 +120,7 @@ const Home = () => {
             key={i._id}
             name={i.name}
             price={i.price}
-            photo={i.photo}
+            photo={i.photos[0]}
             stock={i.stock}
             rating={i.rating}
             handler={addToCartHandler}
